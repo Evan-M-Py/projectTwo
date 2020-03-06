@@ -14,7 +14,8 @@ $(document).ready(function() {
     function displayAllBands(){
         $.get("/api/artists", function(data) {
             console.log(data);
-    });
+          });
+    }
 
 
 
