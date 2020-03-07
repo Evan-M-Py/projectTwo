@@ -1,0 +1,13 @@
+#brand {
+    font-family: 'Nosifer', cursive;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background: url('../Images/concert_image_3.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
