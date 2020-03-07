@@ -1,9 +1,12 @@
+const db = require("../models");
+
 module.exports = function(app) {
     app.get("/api/artists/", function(req, res) {
         db.Bands.findAll({
-            order: ["bandName", "DESC"]
+            order: ["bandName"]
         }).then(function(band) {
             res.json(band);
+            console.log(band);
         });
     });
 
