@@ -5,8 +5,8 @@ module.exports = function(app) {
         db.Bands.findAll({
             order: ["bandName"]
         }).then(function(band) {
-            res.json(band[0])
-            console.log(band[0]);
+            res.json(band);
+            console.log(band);
         });
     });
 
