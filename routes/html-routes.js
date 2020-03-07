@@ -1,19 +1,33 @@
 const path = require("path");
+const db = require("../models");
 
 // HTML Routes
 module.exports = function(app) {
 
   // landing page
-  app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/index.html"));
-  });
+//   app.get("/", function(req, res) {
+//     res.sendFile(path.join(__dirname, "../views/dummy.html"));
+//     res.json({data: "data"});
+//   });
 
   // main page of all artists
   app.get("/artists", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/artists.html"));
+    db.Bands.findAll({
+        order: ["id"]
+    }).then(function(data) {
+        const mappedBand = data.map((res)=> {
+            return res;
+        });
+        const handlebarsObj = {
+            bands: mappedBand
+        };
+        // console.log(mappedBand);
+        res.render("artists", handlebarsObj);
+    });
   });
-  // single artist page
-  app.get("/band", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/band.html"));
-  });
+
+//   // single artist page
+//   app.get("/band", function(req, res) {
+//     res.sendFile(path.join(__dirname, "../public/band.html"));
+//   });
 };
