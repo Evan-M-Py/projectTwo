@@ -11,3 +11,29 @@ body {
     background-size: cover;
     -o-background-size: cover;
 }
+
+.card {
+    background-color: grey;
+
+}
+
+.jumbotron {
+    opacity: 50%;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.8);
+}
+
+h1 {
+    font-family: 'Nosifer', cursive;
+
+}
+
+.child {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#showAllArtists {
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.8);
+    opacity: 100%;
+}
