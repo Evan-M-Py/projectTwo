@@ -1,4 +1,5 @@
 const express = require("express");
+const models = require('./models')
 
 
 
@@ -16,8 +17,8 @@ app.use(express.json());
 app.use(express.static("./views/layouts"));
 
 
-// require("./routes/api-routes.js")(app);
-// require("./routes/html-routes.js")(app);
+require("./routes/api-routes.js")(app);
+require("./routes/html-routes.js")(app);
 
 
 db.sequelize.sync()
@@ -26,3 +27,14 @@ db.sequelize.sync()
     console.log("App listening on PORT " + PORT);
   });
 });
+
+const insert = (value, val, valyou, valll) => {
+    models.Bands.create({
+        bandName: value,
+        genre: val,
+        homeTown: valyou,
+        active: valll
+    }).then(foo => console.log(foo));
+  };
+  insert('The Beatles', 'Rock', 'Liverpool', false);
+  

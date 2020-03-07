@@ -12,12 +12,14 @@
 $(document).ready(function() {
     // --all artists page--
     function displayAllBands(){
-        $.get("/api/artists", function(data) {
-            console.log(data);
-          });
+        $.ajax({
+            method: "GET",
+            url: "/api/artists/"
+        }).then((res)=>{
+            console.log(res);
+        })
     }
-
-
+    $("#showAllArtists").on("click", displayAllBands());
 
     // COMMENTS / COMMENT MANIPULATION
     $(document).on("click", "deleteButton", deletePost);
