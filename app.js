@@ -1,5 +1,7 @@
 const express = require("express");
-const models = require('./models')
+const models = require('./models');
+const handlebars = require("express-handlebars");
+
 
 
 
@@ -12,7 +14,8 @@ const db = require("./models");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
+app.engine("handlebars", handlebars({defaultLayout: "main"}));
+app.set("view engine", "handlebars");
 
 app.use(express.static("./views/layouts"));
 
@@ -34,7 +37,7 @@ const insert = (value, val, valyou, valll) => {
         genre: val,
         homeTown: valyou,
         active: valll
-    }).then(foo => console.log(foo));
+    }).then(foo => {});
   };
   insert('The Beatles', 'Rock', 'Liverpool', false);
   
