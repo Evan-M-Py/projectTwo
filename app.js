@@ -30,14 +30,3 @@ db.sequelize.sync()
     console.log("App listening on PORT " + PORT);
   });
 });
-
-const insert = (value, val, valyou, valll) => {
-    models.Bands.create({
-        bandName: value,
-        genre: val,
-        homeTown: valyou,
-        active: valll
-    }).then(foo => {});
-  };
-  insert('The Beatles', 'Rock', 'Liverpool', false);
-  
