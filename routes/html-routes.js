@@ -13,7 +13,7 @@ module.exports = function(app) {
   // main page of all artists
   app.get("/artists", function(req, res) {
     db.Bands.findAll({
-        order: ["id"]
+        order: ["bandName"]
     }).then(function(data) {
         const mappedBand = data.map((res)=> {
             return res;
