@@ -17,7 +17,7 @@ $(document).ready(function() {
             method: "GET",
             url: "/api/artists/"
         }).then((res)=>{
-            console.log(res);
+            // console.log(res);
         })
     }
     $("#showAllArtists").on("click", displayAllBands());
@@ -27,7 +27,7 @@ $(document).ready(function() {
             method: "GET",
             url: "/api/artists/" + genre
         }).then((res) => {
-            console.log(res)
+            // console.log(res)
         })
     }
     
@@ -37,21 +37,6 @@ $(document).ready(function() {
     })
 
     
-    function displayBand() {
-        let categoryString = category || "";
-        if (categoryString) {
-            categoryString = "/category/" + categoryString;
-        }
-        $.get("/api/posts" + categoryString, function(data) {
-            console.log("Posts", data);
-            posts = data;
-            if (!posts || !posts.length) {
-                displayEmpty();
-            } else {
-                initializeRows();
-            }
-        });
-    }
 
 
 
@@ -64,16 +49,6 @@ $(document).ready(function() {
 
     // appends posts to the artists page
 
-    function getComments() {}
-    // api call to delete the posts
-    function deletePost(id) {
-        $.ajax({
-            method: "DELETE",
-            url: "/api/posts/" + id
-        }).then(function() {
-            getPosts(searchedBand.val());
-        });
-    }
     
 });
 
