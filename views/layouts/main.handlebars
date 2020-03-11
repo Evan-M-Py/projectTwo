@@ -11,7 +11,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- css stylesheet  -->
-    <link href="../public/CSS/design.css" rel="stylesheet">
+    <link href="/CSS/design.css" rel="stylesheet">
 
     <!-- google nosifer font  -->
     <link href="https://fonts.googleapis.com/css?family=Nosifer&display=swap" rel="stylesheet">
@@ -36,9 +36,29 @@
             </div>
         </div>
     </nav>
-
+    <div class="container col-lg-10">
+    <div class="btn-group" id="genreDrop">
+      <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        Sort By Genre
+      </button>
+      <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Rock</a>
+          <a class="dropdown-item" href="#">Hip Hop</a>
+          <a class="dropdown-item" href="#">Pop</a>
+          <a class="dropdown-item" href="#">Alternative</a>
+          <a class="dropdown-item" href="#">Electronic</a>
+      </div>
+    </div>
+  </div>
+<div class="container"></div>
+<div class="row justify-content-center">
 
     {{{body}}}
+</div>
+
+</div>
+
 
 </body>
 <script src="https://code.jquery.com/jquery.js"></script>
