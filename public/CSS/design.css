@@ -39,3 +39,18 @@ h1 {
     box-shadow: 5px 5px 5px rgba(0,0,0,0.8);
     opacity: 100%;
 }
+
+#genreDrop {
+    margin-top: 30px;
+}
+
+#formBox {
+    margin-top: 30px;
+}
+
+#artistImage {
+    background-image: url(../Images/beatlesJumbo.jpg);
+    /* background-size: auto 100%; */
+    background-repeat: no-repeat;
+    max-height: 1080px;
+}
