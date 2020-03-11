@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Main</title>
+    <title>Tales from the Pit</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -36,42 +36,103 @@
             </div>
         </div>
     </nav>
-    <div class="container col-lg-10">
-    <div class="btn-group" id="genreDrop">
-      <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
-        aria-expanded="false">
-        Sort By Genre
-      </button>
-      <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Rock</a>
-          <a class="dropdown-item" href="#">Hip Hop</a>
-          <a class="dropdown-item" href="#">Pop</a>
-          <a class="dropdown-item" href="#">Alternative</a>
-          <a class="dropdown-item" href="#">Electronic</a>
-      </div>
+
+    <div class="container"></div>
+    <div class="row justify-content-center" id="bandsDiv">
+
+        {{{body}}}
     </div>
-  </div>
-<div class="container"></div>
-<div class="row justify-content-center">
 
-    {{{body}}}
-</div>
-
-</div>
+    </div>
 
 
 </body>
 <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-        <script src="../../public/Javascript/frontEnd.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+<script>
+    // ---all artists page---
+    // loop through artist database
+    // create card with artist, picture, and genre
+    // append card to page
+
+    //---individual artist page---
+    // create card with pic and all artist info
+    // loop through comment database of corresponding artist and create a card with title, content, author and rating
+    //  
+
+
+    $(document).ready(function () {
+        // --all artists page--
+        function displayAllBands() {
+            $.ajax({
+                method: "GET",
+                url: "/api/artists/"
+            }).then((res) => {
+                console.log(res);
+            })
+        }
+        $("#showAllArtists").on("click", displayAllBands());
+
+        function displayBandsOfGenre(genre) {
+            $.ajax({
+                method: "GET",
+                url: "/api/artists/" + genre
+            }).then((res) => {
+                
+            })
+        }
+
+        $("#genre").on("change", () => {
+            let selectedGenre = $("#genre").children("option:selected").val();
+            displayBandsOfGenre(selectedGenre)
+        })
+
+
+        function displayBand() {
+            let categoryString = category || "";
+            if (categoryString) {
+                categoryString = "/category/" + categoryString;
+            }
+            $.get("/api/posts" + categoryString, function (data) {
+                console.log("Posts", data);
+                posts = data;
+                if (!posts || !posts.length) {
+                    displayEmpty();
+                } else {
+                    initializeRows();
+                }
+            });
+        }
+
+
+
+
+        // COMMENTS / COMMENT MANIPULATION
+        $(document).on("click", "deleteButton", deletePost);
+
+
+        // appends comments to the artists page
+
+        // appends posts to the artists page
+
+        function getComments() { }
+        // api call to delete the posts
+        function deletePost(id) {
+            $.ajax({
+                method: "DELETE",
+                url: "/api/posts/" + id
+            }).then(function () {
+                getPosts(searchedBand.val());
+            });
+        }
+
+    });
+</script>
 
 </html>

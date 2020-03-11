@@ -21,20 +21,21 @@ $(document).ready(function() {
         })
     }
     $("#showAllArtists").on("click", displayAllBands());
-
-$(document).ready(function() {
-    // SEARCH / ARTISTS
-    const bandSearchBar = $("#bandSearchBar");
-    let searchedBand = $("#bandSearchBar").val();
-    // allows search of the database
-    function searchBand(searchedBand) {
+    
+    function displayBandsOfGenre(genre){
         $.ajax({
             method: "GET",
-            url: "/api/bands/" + searchedBand
-        }).then(function() {
-            getComments(searchedBand.val());
-        });
+            url: "/api/artists/" + genre
+        }).then((res) => {
+            console.log(res)
+        })
     }
+    
+    $("#genre").on("change", () => {
+        let selectedGenre = $(this).val();
+        displayBandsOfGenre(selectedGenre)
+    })
+
     
     function displayBand() {
         let categoryString = category || "";
@@ -76,3 +77,4 @@ $(document).ready(function() {
     
 });
 
+});

@@ -11,12 +11,20 @@ module.exports = function(app) {
     });
 
     app.get("/api/artists/:genre", function(req, res) {
+        // console.log(req)
         db.Bands.findAll({
             where: {
                 genre: req.params.genre
             }
-        }).then(function(band) {
-            res.json(band);
+        }).then(function(data) {
+            const mappedBand = data.map((res)=> {
+                return res;
+            });
+            const handlebarsObj = {
+                bands: mappedBand
+            };
+            console.log(mappedBand);
+            res.render("artists", handlebarsObj);
         });
     });
 
