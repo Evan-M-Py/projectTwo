@@ -32,7 +32,7 @@ $(document).ready(function() {
     }
     
     $("#genre").on("change", () => {
-        let selectedGenre = $(this).val();
+        let selectedGenre = $("#genre").children("option:selected").val();
         displayBandsOfGenre(selectedGenre)
     })
 
@@ -77,4 +77,4 @@ $(document).ready(function() {
     
 });
 
-});
+// });
