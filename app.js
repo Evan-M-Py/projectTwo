@@ -13,6 +13,7 @@ app.engine("handlebars", handlebars({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 app.use(express.static("./views/layouts"));
+app.use(express.static(__dirname + '/public'));
 
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
