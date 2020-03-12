@@ -11,7 +11,6 @@ module.exports = function(app) {
     });
 
     app.get("/api/artists/:genre", function(req, res) {
-        // console.log(req)
         db.Bands.findAll({
             where: {
                 genre: req.params.genre
@@ -23,7 +22,6 @@ module.exports = function(app) {
             const handlebarsObj = {
                 bands: mappedBand
             };
-            console.log(mappedBand);
             res.render("artists", handlebarsObj);
         });
     });

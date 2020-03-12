@@ -15,6 +15,7 @@ module.exports = function(app) {
         const handlebarsObj = {
             bands: mappedBand
         };
+        console.log(handlebarsObj);
         res.render("artists", handlebarsObj);
     });
   });
