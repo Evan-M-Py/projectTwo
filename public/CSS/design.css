@@ -24,10 +24,13 @@ body {
     box-shadow: 10px 10px 10px rgba(0,0,0,0.8);
 }
 
-h1 {
+h1, label {
     font-family: 'Nosifer', cursive;
 
 }
+ label {
+     color: white;
+ }
 
 .child {
     position: absolute;
