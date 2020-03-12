@@ -4,6 +4,11 @@ const db = require("../models");
 // HTML Routes
 module.exports = function(app) {
 
+  app.get("/home", function(req, res) {
+
+        res.render("home");
+  });
+
   // main page of all artists
   app.get("/artists", function(req, res) {
     db.Bands.findAll({
