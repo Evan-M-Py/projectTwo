@@ -16,7 +16,7 @@ Deployed: < heroku link here >
 
 Technologies used: Javascript, MySQL, Node, Express, Handlebars, Bootstrap, jQuery
 
-Developers:
+<strong>Developers:
 
 Evan Pylar https://github.com/Evan-M-Py
 
@@ -25,3 +25,4 @@ Chase Mathews https://github.com/cha2169540
 Nick Matos https://github.com/ShushImGaming
         
 Ryan Williams https://github.com/Niterich
+</strong>
