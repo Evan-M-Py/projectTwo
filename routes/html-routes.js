@@ -3,30 +3,36 @@ const db = require("../models");
 
 // HTML Routes
 module.exports = function(app) {
-
-  app.get("/home", function(req, res) {
-
+    app.get("/", function(req, res) {
         res.render("home");
-  });
-
-  app.get("/band", function(req, res) {
-    res.render("band");
-  });
-
-  // main page of all artists
-  app.get("/artists", function(req, res) {
-    db.Bands.findAll({
-        order: ["bandName"]
-    }).then(function(data) {
-        const mappedBand = data.map((res)=> {
-            return res;
-        });
-        const handlebarsObj = {
-            bands: mappedBand
-        };
-        console.log(handlebarsObj);
-        res.render("artists", handlebarsObj);
     });
-  });
+    // main page of all artists
+    app.get("/artists", function(req, res) {
+        db.Bands.findAll({
+            order: ["bandName"]
+        }).then(function(data) {
+            const mappedBand = data.map(res => {
+                return res;
+            });
+            const handlebarsObj = {
+                bands: mappedBand
+            };
+            res.render("artists", handlebarsObj);
+        });
 
+        app.get("/band", function(req, res) {
+            res.render("band");
+        });
+
+        // main page of all artists
+        app.get("/artists", function(req, res) {
+            db.Bands.findAll({
+                order: ["bandName"]
+            }).then(function(data) {
+                const mappedBand = data.map(res => {
+                    return res;
+                });
+            });
+        });
+    });
 };
