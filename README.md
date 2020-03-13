@@ -16,7 +16,7 @@ Welcome to Tales from the Pit, where you can rate and comment on the performaces
 
 <strong>Technologies used:</strong> Javascript, MySQL, Node, Express, Handlebars, Bootstrap, jQuery
 
-<strong>Developers:
+<strong>Developers:</strong>
 
 Evan Pylar: https://github.com/Evan-M-Py
 
@@ -25,4 +25,3 @@ Chase Mathews: https://github.com/cha2169540
 Nick Matos: https://github.com/ShushImGaming
         
 Ryan Williams: https://github.com/Niterich
-</strong>
