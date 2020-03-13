@@ -9,17 +9,40 @@
 //
 
 $(document).ready(function() {
-    // --all artists page--
+    //enter the site from landing page
+    // function enterSite() {
+    //     $.ajax({
+    //         method: "GET",
+    //         url: "/artists"
+    //     }).then(data => {
+    //         console.log("redirected to artists");
+    //     });
+    // }
+    // $("#enterBtn").on("click", enterSite());
+
+    //back to home
+    function backHome() {
+        $.ajax({
+            method: "GET",
+            url: "/"
+        }).then(data => {
+            // console.log("back to homepage");
+        });
+    }
+    $("#home").on("click", backHome());
+
+    // displays all artists in the DB on this page
     function displayAllBands() {
         $.ajax({
             method: "GET",
-            url: "/api/artists/"
+            url: "/artists"
         }).then(res => {
-            // console.log(res);
+            // console.log("display all the artists");
         });
     }
     $("#showAllArtists").on("click", displayAllBands());
 
+    //display artists of a certain genre
     function displayBandsOfGenre(genre) {
         $.ajax({
             method: "GET",
@@ -30,20 +53,12 @@ $(document).ready(function() {
             newDoc.close();
         });
     }
-
     $("#genre").on("change", () => {
         let selectedGenre = $("#genre")
             .children("option:selected")
             .val();
         displayBandsOfGenre(selectedGenre);
     });
-
     // COMMENTS / COMMENT MANIPULATION
-    $(document).on("click", "deleteButton", deletePost);
-
-    // appends comments to the artists page
-
-    // appends posts to the artists page
+    // $(document).on("click", "#deleteButton", deletePost);
 });
-
-// });
