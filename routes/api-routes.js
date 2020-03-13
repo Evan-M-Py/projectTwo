@@ -6,7 +6,6 @@ module.exports = function(app) {
             order: ["bandName"]
         }).then(function(band) {
             res.json(band);
-            console.log(band);
         });
     });
 
@@ -31,8 +30,25 @@ module.exports = function(app) {
             where: {
                 id: req.params.id
             }
-        }).then(function(dbPost) {
-            res.json(dbPost);
+        }).then(function(band) {
+            res.json(band);
+            const mappedArtist = data.map((res)=> {
+                return res;
+            });
+            const handlebarsObj = {
+                artist: mappedArtist
+            };
+            res.render("band", handlebarsObj);
         });
     });
+    
+    app.delete("/api/post/:id", function (req, res) {
+        db.Band.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then(function(post){
+            res.json(post);
+        })
+    })
 };

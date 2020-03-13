@@ -9,39 +9,6 @@
 //
 
 $(document).ready(function() {
-    //enter the site from landing page
-    // function enterSite() {
-    //     $.ajax({
-    //         method: "GET",
-    //         url: "/artists"
-    //     }).then(data => {
-    //         console.log("redirected to artists");
-    //     });
-    // }
-    // $("#enterBtn").on("click", enterSite());
-
-    //back to home
-    function backHome() {
-        $.ajax({
-            method: "GET",
-            url: "/"
-        }).then(data => {
-            // console.log("back to homepage");
-        });
-    }
-    $("#home").on("click", backHome());
-
-    // displays all artists in the DB on this page
-    function displayAllBands() {
-        $.ajax({
-            method: "GET",
-            url: "/artists"
-        }).then(res => {
-            // console.log("display all the artists");
-        });
-    }
-    $("#showAllArtists").on("click", displayAllBands());
-
     //display artists of a certain genre
     function displayBandsOfGenre(genre) {
         $.ajax({
@@ -59,6 +26,33 @@ $(document).ready(function() {
             .val();
         displayBandsOfGenre(selectedGenre);
     });
+    //function for displaying all comments associated with a band
+    function renderArtistPage(id) {
+        $.ajax({
+            method: "GET",
+            url: "/api/artist/" + id
+        }).then(res => {
+            return
+        });
+    }
+    $(".reviewLink").on("click", idClick => {
+        idClick = event.target.id;
+        console.log(idClick);
+        renderArtistPage(idClick);
+    });
+
     // COMMENTS / COMMENT MANIPULATION
-    // $(document).on("click", "#deleteButton", deletePost);
+    function deletePost(id) {
+        $.ajax({
+            method: "DELETE",
+            url: "/api/band/" + id
+        }).then(res => {
+            return
+        });
+    }
+    $(".deleteButton").on("click", idClick => {
+        idClick = event.target.id;
+        console.log(idClick);
+        deletePost(idClick);
+    });
 });
