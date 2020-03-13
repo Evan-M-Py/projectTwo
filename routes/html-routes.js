@@ -4,11 +4,14 @@ const db = require("../models");
 // HTML Routes
 module.exports = function(app) {
 
-  // landing page
-//   app.get("/", function(req, res) {
-//     res.sendFile(path.join(__dirname, "../views/dummy.html"));
-//     res.json({data: "data"});
-//   });
+  app.get("/home", function(req, res) {
+
+        res.render("home");
+  });
+
+  app.get("/band", function(req, res) {
+    res.render("band");
+  });
 
   // main page of all artists
   app.get("/artists", function(req, res) {
@@ -21,13 +24,9 @@ module.exports = function(app) {
         const handlebarsObj = {
             bands: mappedBand
         };
-        // console.log(mappedBand);
+        console.log(handlebarsObj);
         res.render("artists", handlebarsObj);
     });
   });
 
-//   // single artist page
-//   app.get("/band", function(req, res) {
-//     res.sendFile(path.join(__dirname, "../public/band.html"));
-//   });
 };

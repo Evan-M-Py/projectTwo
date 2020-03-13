@@ -17,6 +17,12 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1, 5]
             }
         },
+        venue: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1, 30]
+            },
         title: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -29,7 +35,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
             len: [1, 250]
         }
-    });
+    }});
 
     Comment.associate = function (models) {
         Comment.belongsTo(models.Bands, {
