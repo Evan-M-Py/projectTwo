@@ -19,5 +19,20 @@ module.exports = function(app) {
             };
             res.render("artists", handlebarsObj);
         });
+
+        app.get("/band", function(req, res) {
+            res.render("band");
+        });
+
+        // main page of all artists
+        app.get("/artists", function(req, res) {
+            db.Bands.findAll({
+                order: ["bandName"]
+            }).then(function(data) {
+                const mappedBand = data.map(res => {
+                    return res;
+                });
+            });
+        });
     });
 };
