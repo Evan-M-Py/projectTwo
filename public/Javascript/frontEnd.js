@@ -39,11 +39,26 @@ $(document).ready(function() {
     });
 
     // COMMENTS / COMMENT MANIPULATION
-    $(document).on("click", "deleteButton", deletePost);
+    // $(document).on("click", "deleteButton", deletePost);
 
     // appends comments to the artists page
 
     // appends posts to the artists page
 });
 
-// });
+var commentSubmit = document.getElementById('commentSubmit');
+var calBtn = document.getElementById('calBtn');
+const picker = datepicker('.picker', {
+    onSelect: instance => {
+        picker.hide()
+    console.log(instance.dateSelected);
+    },
+    id:1
+});
+$('#calBtn').on('click', picker.show());
+// calBtn.addEventListener('click', e => {
+//     e.stopPropagation()
+//     const isHidden = picker.calendarContainer.classList.contains('qs-hidden')
+//     picker[isHidden ? 'show' : 'hide']()
+//   })
+picker.calendarContainer.style.setProperty('font-size', '1.1rem');

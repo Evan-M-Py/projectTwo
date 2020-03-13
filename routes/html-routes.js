@@ -9,6 +9,10 @@ module.exports = function(app) {
         res.render("home");
   });
 
+  app.get("/band", function(req, res) {
+    res.render("band");
+  });
+
   // main page of all artists
   app.get("/artists", function(req, res) {
     db.Bands.findAll({
