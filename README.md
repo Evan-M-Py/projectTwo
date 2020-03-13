@@ -12,17 +12,17 @@ Shouldn't there be a place to share all these experiences?
 ------
 Welcome to Tales from the Pit, where you can rate and comment on the performaces of some of the industrys biggest artists and share your experience seeing them live!
 
-Deployed: < heroku link here >
+<strong>Deployed:</strong> < heroku link here >
 
-Technologies used: Javascript, MySQL, Node, Express, Handlebars, Bootstrap, jQuery
+<strong>Technologies used:</strong> Javascript, MySQL, Node, Express, Handlebars, Bootstrap, jQuery
 
 <strong>Developers:
 
-Evan Pylar https://github.com/Evan-M-Py
+Evan Pylar: https://github.com/Evan-M-Py
 
-Chase Mathews https://github.com/cha2169540
+Chase Mathews: https://github.com/cha2169540
         
-Nick Matos https://github.com/ShushImGaming
+Nick Matos: https://github.com/ShushImGaming
         
-Ryan Williams https://github.com/Niterich
+Ryan Williams: https://github.com/Niterich
 </strong>
