@@ -7,8 +7,6 @@ module.exports = function (sequelize, DataTypes) {
             validate: {
                 len: [1, 35]
             }
-
-
         },
         rating: {
             type: DataTypes.INTEGER,
@@ -22,20 +20,21 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
             validate: {
                 len: [1, 30]
-            },
-        title: {
+            }
+        },
+        date: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [1, 30]
+                len:[8,10]
             }
         },
-        body: {
+        comment: {
             type: DataTypes.TEXT,
             allowNull: false,
-            len: [1, 250]
+            len: [1, 300]
         }
-    }});
+    });
 
     Comment.associate = function (models) {
         Comment.belongsTo(models.Bands, {
