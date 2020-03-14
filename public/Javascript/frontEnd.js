@@ -32,7 +32,7 @@ $(document).ready(function() {
             method: "GET",
             url: "/api/artist/" + id
         }).then(res => {
-            return
+            return;
         });
     }
     $(".reviewLink").on("click", idClick => {
@@ -43,12 +43,26 @@ $(document).ready(function() {
 
     // COMMENTS / COMMENT MANIPULATION
 
+    function createPost() {
+        $.ajax({
+            method: "POST",
+            url: "/api/comments"
+        }).then(res => {
+            console.log(res);
+        });
+    }
+    $("#commentSubmit").on("click", (id) => {
+        event.preventDefault();
+        console.log("comment submitted")
+        createPost();
+    })
+
     function deletePost(id) {
         $.ajax({
             method: "DELETE",
-            url: "/api/band/" + id
+            url: "/api/comment/" + id
         }).then(res => {
-            return
+            return;
         });
     }
     $(".deleteButton").on("click", idClick => {

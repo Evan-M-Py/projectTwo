@@ -15,7 +15,7 @@ module.exports = function(app) {
                 genre: req.params.genre
             }
         }).then(function(data) {
-            const mappedBand = data.map((res)=> {
+            const mappedBand = data.map(res => {
                 return res;
             });
             const handlebarsObj = {
@@ -32,7 +32,7 @@ module.exports = function(app) {
             }
         }).then(function(band) {
             res.json(band);
-            const mappedArtist = data.map((res)=> {
+            const mappedArtist = data.map(res => {
                 return res;
             });
             const handlebarsObj = {
@@ -42,12 +42,12 @@ module.exports = function(app) {
         });
     });
     
-    app.delete("/api/post/:id", function (req, res) {
-        db.Band.destroy({
+    app.delete("/api/comment/:id", function(req, res) {
+        db.Comment.destroy({
             where: {
                 id: req.params.id
             }
-        }).then(function(post){
+        }).then(function(post) {
             res.json(post);
         })
     })
@@ -65,5 +65,21 @@ app.post("/api/posts", function(req, res) {
         res.json(dbPost);
       });
   });
-};
 
+
+app.post("/api/comments", function(req, res) {
+    console.log(req.body);
+    db.Comment
+        .create({
+            author: req.body.screenName.value,
+            rating: req.body.ratingSlideVal.value,
+            venue: req.body.venue.value,
+            date: req.body.datePicker.value,
+            comment: req.body.comment.value
+        })
+        .then(function(dbPost) {
+            res.json(dbPost);
+        });
+});
+
+};
