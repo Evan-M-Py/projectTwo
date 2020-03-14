@@ -26,7 +26,14 @@ $(document).ready(function() {
             .val();
         displayBandsOfGenre(selectedGenre);
     });
+
     //function for displaying all comments associated with a band
+    let artistsChoice = document.getElementById("artistChoice")
+    $('.card-link').on('click', () => {
+        renderArtistPage(artistsChoice.val().trim());
+    })
+
+
     function renderArtistPage(id) {
         $.ajax({
             method: "GET",
@@ -57,7 +64,7 @@ $(document).ready(function() {
     function submitPost(Post) {
         $.ajax({
             type: "POST",
-            url: "/api/posts/" 
+            url: "/api/posts" 
         }).then(res => {
             console.log(res);
         });
