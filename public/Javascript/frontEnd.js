@@ -61,18 +61,27 @@ $(document).ready(function() {
 });
 
 $("#commentSubmit").on("click", (id) => {
-    event.preventDefault();
-    console.log("comment submitted")
     createPost();
+    console.log("comment submitted")
+    
 })
 
+$("button").on("click", function() {
+ 
+    const screenName = $('#screenName').val();
+    console.log(screenName);
+});
+
+    // // Performing our AJAX GET request
+    // $.ajax({
+    //   url: queryURL,
+    //   method: "GET"
+    // })
+    //   // After the data comes back from the API
+    //   .then(function(response) {
 
 
-function createPost(Post) {
-    $.post("/api/posts/", Post, function(res) {
-        console.log(res);
-    });
-  }
+
 
 
 
