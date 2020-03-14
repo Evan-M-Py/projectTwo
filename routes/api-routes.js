@@ -56,11 +56,11 @@ module.exports = function(app) {
     
 app.post("/api/posts/:newPost", function(req, res) {
     db.Comment.create({
-      author: req.params.newPost.author,
-      rating: req.params.newPost.rating,
-      venue: req.params.newPost.venue,
-      date: req.params.newPost.date,
-      comment: req.params.newPost.comment
+      author: req.params.author,
+      rating: req.params.rating,
+      venue: req.params.venue,
+      date: req.params.date,
+      comment: req.params.comment
       
     }).then(function(dbPost) {
         console.log('show me the money' + dbPost);
