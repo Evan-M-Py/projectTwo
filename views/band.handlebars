@@ -1,37 +1,60 @@
+
+<div class="container m-2">
+    <div class="media">
+        <img id="bandImg" src="/Images/music-stock.jpg" class="align-self-center mr-3" alt="...">
+        <div class="media-body">
+            <h2 class="mt-0">{{dataValues.bandName}}Band Name</h5>
+            <h4>{{dataValues.homeTown}}Home Town</h4>
+            <h4>{{dataValues.genre}}Genre</h4>
+            <h4>{{dataValues.active}}Active Y/N</h4>
+            <h4>{{dataValues.rating}}Avg. Rating</h4>
+        </div>
+    </div>
+</div>
+
+<div class="container commentForm">
+
+
+    <div class="row justify-content-center">
+        <h1 class="block-header"> How was the show? </h1>
+    </div>
+
 <a class="btn btn-primary" data-toggle="collapse" href="#commentForm" role="button" aria-expanded="false" aria-controls="commentForm">
     Add a Review </a>
  
 <div class="container commentForm" id= 'commentForm'>
+
     <hr />
     <form>
         <div class="row justify-content-center">
             <div class="col-md-5">
                 <div class="row justify-content-center">
-                <label for="Author" class="formFontColor"> Enter a Screen Name </label>
-                <input type="text" class="form-control" id="screenName" placeholder="Name">
+                    <label for="Author" class="formFontColor"> Enter a Screen Name </label>
+                    <input type="text" class="form-control" id="screenName" placeholder="Name">
                 </div>
                 <div class="row justify-content-center">
                     <div class="col mt-2 text-center">
-                <label for="slider" class="formFontColor"> Rating </label>
-                <div class="sliderBox">
-                <label for="slider" class="formFontColor">(<- 0/20 ->)</label>
-                <input type="range" name='slider' class="my-2 slider form-control" id="slider" min="0" max="20" onchange="updateTextInput(this.value);" >
-                <label for="ratingSlideVal" class="formFontColor">Your Rating:</label>
-                <input type="text" class="my-3" id="ratingSlideVal" value="">
-                </div>
-                </div>
+                        <label for="slider" class="formFontColor"> Rating </label>
+                        <div class="sliderBox">
+                            <label for="slider" class="formFontColor">(<- 0/20 ->)</label>
+                            <input type="range" name='slider' class="my-2 slider form-control" id="slider" min="0"
+                                max="20" onchange="updateTextInput(this.value);">
+                            <label for="ratingSlideVal" class="formFontColor">Your Rating:</label>
+                            <input type="text" class="my-3" id="ratingSlideVal" value="">
+                        </div>
+                    </div>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col mt-2 text-center">
-                <label for="location" class="formFontColor" Venue </label>
-                <input id="venue" type="location" class="form-control" data-provide="datepicker" placeholder="Where was the show?">
-                </div>
+                        <label for="location" class="formFontColor"> Venue </label>
+                        <input id="venue" type="location" class="form-control" data-provide="datepicker"
+                            placeholder="Where was the show?">
+                    </div>
                 </div>
             </div>
             <div class="col-md-4 ml-5">
                 <label for="date" class="formFontColor"> When was the show? </label>
                 <br>
-                <button class="btn btn-secondary btn-small" id="calBtn">Calander</button>
                 <input class="picker" id="datePicker"></input>
             </div>
         </div>
@@ -47,6 +70,29 @@
     </form>
 </div>
 </div>
+
+
+{{!-- comments div --}}
+<div class="container" id="commentsDiv">
+    {{!-- {{#each comments}} --}}
+    <div class="row">
+    <div class="card d-inline-block mx-2 comment col-12">
+        <div class="card-body">
+            <h4 class="card-title text-center">{{dataValues.author}}Author</h4>
+            <h5>{{dataValues.rating}}Rating</h5>
+            <h5>{{dataValues.venue}}Venue</h5>
+            <h5>{{dataValues.date}}Date</h5>
+        </div>
+        <div class="card-body">
+            <p>{{dataValues.comment}}This will be the comment text</p>
+            <button class="btn btn-danger deleteButton" id={{dataValues.id}}>X</button>
+        </div>
+    </div>
+    </div>
+    {{!-- {{/each}} --}}
+
+</div>
+
 
 <script src="https://unpkg.com/js-datepicker"></script>
 <script src="/Javascript/band.js"></script>
