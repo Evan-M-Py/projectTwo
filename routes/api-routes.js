@@ -25,14 +25,15 @@ module.exports = function(app) {
         });
     });
 
-    app.get("/api/band/:id", function(req, res) {
-        db.Band.findOne({
+    app.get("/api/artist/:id", function(req, res) {
+        console.log(req.params.id)
+        db.Bands.findOne({
             where: {
                 id: req.params.id
             }
         }).then(function(band) {
-            res.json(band);
-            const mappedArtist = data.map(res => {
+            res.json(band); 
+            const mappedArtist = band.map(res => {
                 return res;
             });
             const handlebarsObj = {
@@ -64,6 +65,7 @@ module.exports = function(app) {
             })
             .then(function(dbPost) {
                 res.json(dbPost);
+                console.log(req.body);
             });
     });
 };
