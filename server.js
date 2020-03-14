@@ -21,16 +21,16 @@ require("./routes/html-routes.js")(app);
 db.sequelize.sync().then(function() {
     app.listen(PORT, function() {
         console.log("App listening on PORT " + PORT);
-    //     const insert = (value, val, valyou, valll) => {
-    //         models.Bands.create({
-    //             bandName: value,
-    //             genre: val,
-    //             homeTown: valyou,
-    //             active: valll
-    //         }).then(foo => {
-    //             console.log("Artist Added!");
-    //         });
-    //     };
+        const insert = (value, val, valyou, valll) => {
+            models.Bands.create({
+                bandName: value,
+                genre: val,
+                homeTown: valyou,
+                active: valll
+            }).then(foo => {
+                console.log("Artist Added!");
+            });
+        };
         
     //     //Rock
         insert("The Beatles", "Rock", "Liverpool", false);
