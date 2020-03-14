@@ -55,7 +55,6 @@ module.exports = function(app) {
     })
     
 app.post("/api/posts", function(req, res) {
-    console.log(req.body);
     db.Comment.create({
       author: req.body.screenName,
       rating: req.body.rating,
