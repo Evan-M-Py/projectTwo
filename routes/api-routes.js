@@ -1,4 +1,6 @@
 const db = require("../models");
+const express = require("express");
+
 
 module.exports = function(app) {
     app.get("/api/artists/", function(req, res) {
@@ -32,8 +34,8 @@ module.exports = function(app) {
                 id: req.params.id
             }
         }).then(function(band) {
-            res.json(band); 
-            const mappedArtist = band.map(res => {
+            res.json(band);
+            const mappedArtist = data.map(res => {
                 return res;
             });
             const handlebarsObj = {
@@ -42,7 +44,7 @@ module.exports = function(app) {
             res.render("band", handlebarsObj);
         });
     });
-
+    
     app.delete("/api/comment/:id", function(req, res) {
         db.Comment.destroy({
             where: {
@@ -50,8 +52,39 @@ module.exports = function(app) {
             }
         }).then(function(post) {
             res.json(post);
-        });
-    });
+        })
+    })
+    
+app.post("/api/posts/", function(req, res) {
+    db.Comment.create({
+      author: req.body.author,
+      rating: req.body.rating,
+      venue: req.body.venue,
+      date: req.body.date,
+      comment: req.body.comment
+      
+    }).then(function(dbPost) {
+        console.log('show me the money' + dbPost);
+        res.json(dbPost);
+      });
+  });
+
+// app.post("/api/comments", function(req, res) {
+//     console.log(req.body);
+//     db.Comment
+//         .create({
+//             author: req.body.screenName,
+//             rating: req.body.ratingSlideVal,
+//             venue: req.body.venue,
+//             date: req.body.datePicker,
+//             comment: req.body.comment
+//         })
+//         .then(function(dbPost) {
+//             res.json(dbPost);
+//         });
+// });
+
+};
 
     app.post("/api/comments", function(req, res) {
         console.log(req.body);
@@ -68,4 +101,4 @@ module.exports = function(app) {
                 console.log(req.body);
             });
     });
-};
+// };

@@ -1,4 +1,3 @@
-
 <div class="container m-2">
     <div class="media">
         <img id="bandImg" src="/Images/music-stock.jpg" class="align-self-center mr-3" alt="...">
@@ -12,20 +11,13 @@
     </div>
 </div>
 
-<div class="container commentForm">
-
-
-    <div class="row justify-content-center">
-        <h1 class="block-header"> How was the show? </h1>
-    </div>
-
 <a class="btn btn-primary" data-toggle="collapse" href="#commentForm" role="button" aria-expanded="false" aria-controls="commentForm">
     Add a Review </a>
  
 <div class="container commentForm" id= 'commentForm'>
 
     <hr />
-    <form>
+    <form id="commentForm">
         <div class="row justify-content-center">
             <div class="col-md-5">
                 <div class="row justify-content-center">
@@ -34,21 +26,21 @@
                 </div>
                 <div class="row justify-content-center">
                     <div class="col mt-2 text-center">
-                        <label for="slider" class="formFontColor"> Rating </label>
-                        <div class="sliderBox">
-                            <label for="slider" class="formFontColor">(<- 0/20 ->)</label>
-                            <input type="range" name='slider' class="my-2 slider form-control" id="slider" min="0"
-                                max="20" onchange="updateTextInput(this.value);">
-                            <label for="ratingSlideVal" class="formFontColor">Your Rating:</label>
-                            <input type="text" class="my-3" id="ratingSlideVal" value="">
-                        </div>
+                    <label for="slider" class="formFontColor"> Rating </label>
+                    <div class="sliderBox">
+                        <label for="slider" class="formFontColor">(<- 0/20 ->)</label>
+                        <input type="range" name='slider' class="my-2 slider form-control" id="slider" min="0" max="20"
+                        onchange="updateTextInput(this.value);">
+                        <label for="ratingSlideVal" class="formFontColor">Your Rating:</label>
+                        <input type="text" class="my-3" id="ratingSlideVal" value="">
                     </div>
+                </div>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col mt-2 text-center">
-                        <label for="location" class="formFontColor"> Venue </label>
-                        <input id="venue" type="location" class="form-control" data-provide="datepicker"
-                            placeholder="Where was the show?">
+                        <label for="location" class="formFontColor" Venue </label>
+                            <input id="venue" type="location" class="form-control" data-provide="datepicker"
+                                placeholder="Where was the show?">
                     </div>
                 </div>
             </div>
@@ -65,12 +57,11 @@
             </div>
         </div>
         <div class="row offset-md-10 mt-1">
-            <input id="commentSubmit" class="btn btn-secondary" type="submit" value="Submit">
+            <input id="commentSubmit" class="btn btn-secondary" type="submit">
         </div>
     </form>
 </div>
 </div>
-
 
 {{!-- comments div --}}
 <div class="container" id="commentsDiv">
@@ -92,7 +83,6 @@
     {{!-- {{/each}} --}}
 
 </div>
-
 
 <script src="https://unpkg.com/js-datepicker"></script>
 <script src="/Javascript/band.js"></script>
