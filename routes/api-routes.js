@@ -53,15 +53,21 @@ module.exports = function(app) {
             res.json(post);
         })
     })
+
+let author = $('#screenName').val().trim();
+let rating = $('#ratingSliderVal').val().trim();
+let venue = $('#venue').val().trim();
+let date = $('#datePicker').val().trim();
+let comment = $('#comment').val().trim();
     
 app.post("/api/posts", function(req, res) {
     console.log(req.body);
     db.Comment.create({
-      author: req.body.screenName,
-      rating: req.body.rating,
-      venue: req.body.venue,
-      date: req.body.datePicker,
-      comment: req.body.body
+      author: author,
+      rating: rating,
+      venue: venue,
+      date: date,
+      comment: comment
       
     }).then(function(dbPost) {
         console.log(dbPost);
@@ -85,4 +91,4 @@ app.post("/api/posts", function(req, res) {
 // });
 
 };
-import {jqueryElements} from './jqueryTags.js';
+module.import {jqueryElements} from './jqueryTags.js';
