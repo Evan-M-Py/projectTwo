@@ -1,4 +1,5 @@
 const db = require("../models");
+const express = require("express");
 
 module.exports = function(app) {
     app.get("/api/artists/", function(req, res) {
@@ -54,12 +55,12 @@ module.exports = function(app) {
     
 app.post("/api/posts", function(req, res) {
     console.log(req.body);
-    db.post.create({
-      author: req.body.screenName.val(),
-      rating: req.body.rating.val(),
-      venue: req.body.venue.val(),
-      date: req.body.datePicker.val(),
-      comment: req.body.body.val()
+    db.Comment.create({
+      author: req.body.screenName,
+      rating: req.body.rating,
+      venue: req.body.venue,
+      date: req.body.datePicker,
+      comment: req.body.body
       
     }).then(function(dbPost) {
         res.json(dbPost);
@@ -67,19 +68,19 @@ app.post("/api/posts", function(req, res) {
   });
 
 
-app.post("/api/comments", function(req, res) {
-    console.log(req.body);
-    db.Comment
-        .create({
-            author: req.body.screenName.val(),
-            rating: req.body.ratingSlideVal.val(),
-            venue: req.body.venue.val(),
-            date: req.body.datePicker.val(),
-            comment: req.body.comment.val()
-        })
-        .then(function(dbPost) {
-            res.json(dbPost);
-        });
-});
+// app.post("/api/comments", function(req, res) {
+//     console.log(req.body);
+//     db.Comment
+//         .create({
+//             author: req.body.screenName,
+//             rating: req.body.ratingSlideVal,
+//             venue: req.body.venue,
+//             date: req.body.datePicker,
+//             comment: req.body.comment
+//         })
+//         .then(function(dbPost) {
+//             res.json(dbPost);
+//         });
+// });
 
 };
