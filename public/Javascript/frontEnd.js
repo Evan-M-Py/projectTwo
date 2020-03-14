@@ -30,7 +30,7 @@ $(document).ready(function() {
     //function for displaying all comments associated with a band
     let artistsChoice = document.getElementById("artistChoice")
     $('.card-link').on('click', () => {
-        renderArtistPage(artistsChoice.val().trim());
+        renderArtistPage(artistsChoice);
     })
 
 
