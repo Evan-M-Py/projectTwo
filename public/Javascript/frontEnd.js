@@ -7,6 +7,7 @@
 // create card with pic and all artist info
 // loop through comment database of corresponding artist and create a card with title, content, author and rating
 //
+const routes = require('../../routes')
 
 $(document).ready(function() {
     //display artists of a certain genre
@@ -62,18 +63,17 @@ $(document).ready(function() {
 
 
 $("#commentSubmit").on("click", function() {
- 
-    const screenName = $('#screenName').val();
-    console.log(screenName);
+        $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+        console.log(response);
 });
 
     // // Performing our AJAX GET request
-    // $.ajax({
-    //   url: queryURL,
-    //   method: "GET"
-    // })
+
     //   // After the data comes back from the API
-    //   .then(function(response) {
+    //   
 
 
 
