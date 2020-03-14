@@ -61,8 +61,8 @@ $(document).ready(function() {
 
     function submitPost(Post) {
         $.ajax({
-            method: "GET",
-            url: "/api/artist/" + Post
+            method: "POST",
+            url: "/api/posts/" + Post
         }).then(res => {
             console.log(res);
         });
