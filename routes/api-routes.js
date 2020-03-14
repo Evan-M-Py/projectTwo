@@ -63,7 +63,7 @@ app.post("/api/posts", function(req, res) {
       comment: req.body.body
       
     }).then(function(dbPost) {
-        console.log(dbPost);
+        // console.log(dbPost);
         res.json(dbPost);
       });
   });
