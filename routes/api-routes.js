@@ -54,13 +54,13 @@ module.exports = function(app) {
         })
     })
     
-app.post("/api/posts/:newPost", function(req, res) {
+app.post("/api/posts/", function(req, res) {
     db.Comment.create({
-      author: req.params.author,
-      rating: req.params.rating,
-      venue: req.params.venue,
-      date: req.params.date,
-      comment: req.params.comment
+      author: req.query.author,
+      rating: req.query.rating,
+      venue: req.query.venue,
+      date: req.query.date,
+      comment: req.query.comment
       
     }).then(function(dbPost) {
         console.log('show me the money' + dbPost);
