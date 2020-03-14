@@ -51,23 +51,13 @@ $(document).ready(function() {
 
 
 
-    $('#commentSubmit').on("click", function() {
-          const newPost = {
-            author: author.val().trim(),
-            rating: rating.val().trim(),
-            venue: venue.val().trim(),
-            date: date.val().trim(),
-            comment: comment.val().trim()
-          };
-
-            submitPost(newPost);
- 
-        });
+    $('#commentSubmit').on("click",
+            submitPost(newPost));
 
     function submitPost(Post) {
         $.ajax({
-            method: "POST",
-            url: "/api/posts/" + Post
+            type: "POST",
+            url: "/api/posts/" 
         }).then(res => {
             console.log(res);
         });
@@ -75,7 +65,7 @@ $(document).ready(function() {
 
     function updatePost(post) {
         $.ajax({
-          method: "PUT",
+          type: "PUT",
           url: "/api/posts",
           data: post
         })
