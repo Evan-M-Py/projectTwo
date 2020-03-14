@@ -4,8 +4,7 @@
     "password": "root",
     "database": "Bands_App",
     "host": "127.0.0.1",
-    "dialect": "mysql",
-    "operatorsAliases": false
+    "dialect": "mysql"
   },
   "test": {
     "username": "root",
@@ -18,5 +17,5 @@
   "production": {
     "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql"
-  }
+   }
 }
