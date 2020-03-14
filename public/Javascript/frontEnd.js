@@ -29,7 +29,7 @@ $(document).ready(function() {
 
     //function for displaying all comments associated with a band
     let artistsChoice = document.getElementById("artistChoice")
-    $('.card-link').on('click', () => {
+    $('.artistClick').on('click', () => {
         renderArtistPage(artistsChoice);
     })
 
