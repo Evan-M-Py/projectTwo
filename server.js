@@ -1,5 +1,4 @@
 const express = require("express");
-const db = require("./models");
 const handlebars = require("express-handlebars");
 
 
