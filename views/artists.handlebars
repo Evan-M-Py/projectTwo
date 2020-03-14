@@ -1,14 +1,27 @@
+<div class="container col-lg-10">
+    <div class="form-group col-3">
+              <label for="category">Select Genre:</label>
+              <select class="custom-select" id="genre">
+                <option value="" selected>(select a genre)</option>
+                <option value="Rock">Rock</option>
+                <option value="Hip Hop">Hip Hop</option>
+                <option value="Pop">Pop</option>
+                <option value="Electronic">Electronic</option>
+                <option value="Alternative">Alternative</option>
+              </select>
+            </div>
+  </div>
 
 {{#each bands}}
-<div class="row justify-content-center">
-    <div class="card d-inline-block offset-1" style="width: 18rem;">
-        <img class="card-img-top" src="../public/Images/Beatles.jfif" alt="Card image cap">
+
+    <div class="card d-inline-block mx-2">
+        <img class="card-img-top" src="https://bulldogcatholic.org/wp-content/uploads/2016/02/new-music-wednesdays-catholic.jpg" alt="Card image cap">
         <div class="card-body">
-            <h5 class="card-title text-center">{{dataValues.bandName}}</h5>
+            <h5 id="artistChoice" class="card-title text-center">{{dataValues.bandName}}</h5>
         </div>
         <div class="card-body">
-            <a href="" id="{{dataValues.id}}" class="card-link">Review This Band</a>
+            <button  id="{{dataValues.id}}" class=" btn btn-secondary artistClick card-link">Review This Band</button>
         </div>
     </div>
-</div>
+
 {{/each}}

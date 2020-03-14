@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row">
+            <div class="container welcomePage">
+            <div class="row justify-content-center landingBoxOne">
+                <div class="col-sm-4 col-md-5 col-lg-6">
+                    <h1 class="brand text-center">Welcome to Tales From the Pit</h1>
+                </div>
+
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col landingBoxTwo">
+                    <h3 class="brand text-center">Where the true fans and members of YOUR scene discuss the latest tours, festivals, and local bands. From legendary acts like The Rolling Stones
+                        to up and coming bands like Desmond Jones, music connoisseurs of any genre can enjoy a safe environment to discuss live performances!  
+                    </h3>
+                </div>        
+            </div>
+
+            <div class="row justify-content-center landingBoxTwo">
+                <button class="btn btn-dark mb-2" id="enterBtn" onclick="window.location.href = '/artists';">Join the Community!</button>
+            </div>
+        </div>
+    </div>
+
+        {{!-- ________________________________________________________________________________________________________________________________________________________________ --}}
+
+    <div class="row mt-2 p-0" id="homeBtmRow">
+        <div class="col homeRight m-2 text-center">
+            NEW FUNCTIONALITY
+        </div>
+
+        <div class="col homeLeft">
+            <div class="row justify-content-center">
+                    <div class="col-sm-1 col-md-3 col-lg-6"></div>
+                    <h1 class="text-center">Randomized Band!</h1>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="card d-inline-block mx-2">
+                    <img class="card-img-top"
+                        src="https://bulldogcatholic.org/wp-content/uploads/2016/02/new-music-wednesdays-catholic.jpg"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{dataValues.bandName}}</h5>
+                    </div>
+                    <div class="card-body text-center">
+                        <a href="" id="{{dataValues.id}}" class="card-link">Review This Band</a>
+                    </div>
+                    <div class="row justify-content-center">
+                        <button class="btn btn-light" id="randomBtn">randomize</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
