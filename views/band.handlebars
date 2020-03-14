@@ -1,29 +1,44 @@
-<div class="container">
+<div class="container commentForm">
     <div class="row justify-content-center">
         <h1 class="block-header"> How was the show? </h1>
     </div>
     <hr />
     <form>
         <div class="row justify-content-center">
-            <div class="col-md-4">
-                <label for="Author"> Enter a Screen Name </label>
-                <input type="text" class="form-control" placeholder="Name">
-                <label for="rating"> Rating </label>
-                <input type="number" class="form-control" id="rating" placeholder="Rate the band's performance">
-                <label for="location"> Venue </label>
-                <input type="location" class="form-control" data-provide="datepicker" placeholder="Where was the show?">
+            <div class="col-md-5">
+                <div class="row justify-content-center">
+                <label for="Author" class="formFontColor"> Enter a Screen Name </label>
+                <input type="text" class="form-control" id="screenName" placeholder="Name">
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col mt-2 text-center">
+                <label for="slider" class="formFontColor"> Rating </label>
+                <div class="sliderBox">
+                <label for="slider" class="formFontColor">(<- 0/20 ->)</label>
+                <input type="range" name='slider' class="my-2 slider form-control" id="slider" min="0" max="20" onchange="updateTextInput(this.value);" >
+                <label for="ratingSlideVal" class="formFontColor">Your Rating:</label>
+                <input type="text" class="my-3" id="ratingSlideVal" value="">
+                </div>
+                </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col mt-2 text-center">
+                <label for="location" class="formFontColor" Venue </label>
+                <input id="venue" type="location" class="form-control" data-provide="datepicker" placeholder="Where was the show?">
+                </div>
+                </div>
             </div>
             <div class="col-md-4 ml-5">
-                <label for="date"> When was the show? </label>
+                <label for="date" class="formFontColor"> When was the show? </label>
                 <br>
                 <button class="btn btn-secondary btn-small" id="calBtn">Calander</button>
-                <div class="picker"></div>
+                <input class="picker" id="datePicker"></input>
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-md-10 mt-5">
-                <label for="Textarea"> Comments </label>
-                <textarea class="form-control" id="Textarea" rows="8"></textarea>
+            <div class="col-md-10 mt-3">
+                <label for="comment" class="formFontColor"> Comments </label>
+                <textarea class="form-control" id="comment" rows="8"></textarea>
             </div>
         </div>
         <div class="row offset-md-10 mt-1">

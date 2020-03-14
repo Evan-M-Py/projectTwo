@@ -51,4 +51,19 @@ module.exports = function(app) {
             res.json(post);
         })
     })
+    
+app.post("/api/posts", function(req, res) {
+    console.log(req.body);
+    db.post.create({
+      author: req.body.screenName,
+      rating: req.body.rating,
+      venue: req.body.venue,
+      date: req.body.datePicker,
+      comment: req.body.body.val()
+      
+    }).then(function(dbPost) {
+        res.json(dbPost);
+      });
+  });
 };
+
