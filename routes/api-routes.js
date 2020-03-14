@@ -35,9 +35,7 @@ module.exports = function(app) {
             }
         }).then(function(band) {
             res.json(band);
-            const mappedArtist = data.map(res => {
-                return res;
-            });
+            const mappedArtist = band
             const handlebarsObj = {
                 artist: mappedArtist
             };
@@ -84,21 +82,21 @@ app.post("/api/posts/", function(req, res) {
 //         });
 // });
 
-};
 
-    app.post("/api/comments", function(req, res) {
+app.post("/api/comments", function(req, res) {
+    console.log(req.body);
+    db.Comment
+    .create({
+        author: req.body.screenName.value,
+        rating: req.body.ratingSlideVal.value,
+        venue: req.body.venue.value,
+        date: req.body.datePicker.value,
+        comment: req.body.comment.value
+    })
+    .then(function(dbPost) {
+        res.json(dbPost);
         console.log(req.body);
-        db.Comment
-            .create({
-                author: req.body.screenName.value,
-                rating: req.body.ratingSlideVal.value,
-                venue: req.body.venue.value,
-                date: req.body.datePicker.value,
-                comment: req.body.comment.value
-            })
-            .then(function(dbPost) {
-                res.json(dbPost);
-                console.log(req.body);
-            });
     });
+});
+};
 // };
