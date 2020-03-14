@@ -24,17 +24,6 @@ function updateTextInput(val) {
 };
 
 
-var commentSubmit = document.getElementById('commentSubmit');
-$(commentSubmit).on('click', () => {
-    postAndAppendComment()
-
-    console.log(comment)
-}
-);
-
-function postAndAppendComment() {
-    console.log('AJAX goes here');
-}
 
 
 
