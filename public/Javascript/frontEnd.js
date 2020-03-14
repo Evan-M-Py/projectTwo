@@ -7,7 +7,7 @@
 // create card with pic and all artist info
 // loop through comment database of corresponding artist and create a card with title, content, author and rating
 //
-const routes = require('../routes')
+const routes = require('../../routes/api-routes')
 
 $(document).ready(function() {
     //display artists of a certain genre
@@ -43,33 +43,64 @@ $(document).ready(function() {
     });
 
     // COMMENTS / COMMENT MANIPULATION
+    let updating = false;
 
+    const author = $('#screenName');
+    const rating = $('#ratingSliderVal');
+    const venue = $('#venue');
+    const date = $('#datePicker');
+    const comment = $('#comment');
 
-
-    function deletePost(id) {
-        $.ajax({
-            method: "DELETE",
-            url: "/api/comment/" + id
-        }).then(res => {
+    $(commentForm).on("submit", function handleFormSubmit(event) {
+        if (!Author.val().trim() || !comment.val().trim()) {
             return;
+          }
+          const newPost = {
+            author: author.val().trim(),
+            rating: rating.val().trim(),
+            venue: venue.val().trim(),
+            date: date.val().trim(),
+            comment: comment.val().trim()
+          };
+
+            submitPost(newPost);
+ 
         });
-    }
-    $(".deleteButton").on("click", idClick => {
-        idClick = event.target.id;
-        console.log(idClick);
-        deletePost(idClick);
-    });
-});
+
+    function submitPost(Post) {
+        $.post("/api/posts/", Post, function (res) {
+            console.log('this is:' + res);
+        });
+    };
+
+    function updatePost(post) {
+        $.ajax({
+          method: "PUT",
+          url: "/api/posts",
+          data: post
+        })
+          .then(function(res) {
+            window.location.href = "/blog";
+          });
+      };
 
 
-$("#commentSubmit").on("click", function() {
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    }).then(function(response) {
-        console.log(response);
-});
-});
+//     function deletePost(id) {
+//         $.ajax({
+//             method: "DELETE",
+//             url: "/api/comment/" + id
+//         }).then(res => {
+//             return;
+//         });
+//     }
+//     $(".deleteButton").on("click", idClick => {
+//         idClick = event.target.id;
+//         console.log(idClick);
+//         deletePost(idClick);
+//     });
+// });
+
+
 
     // // Performing our AJAX GET request
 

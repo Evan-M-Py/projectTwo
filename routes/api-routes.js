@@ -68,7 +68,6 @@ app.post("/api/posts", function(req, res) {
       });
   });
 
-
 // app.post("/api/comments", function(req, res) {
 //     console.log(req.body);
 //     db.Comment
