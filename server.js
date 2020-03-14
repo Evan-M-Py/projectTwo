@@ -21,13 +21,13 @@ require("./routes/html-routes.js")(app);
 db.sequelize.sync().then(function() {
     app.listen(PORT, function() {
         console.log("App listening on PORT " + PORT);
-        const insert = (value, val, valyou, valll) => {
+        function insert(value, val, valyou, valll) {
             db.Bands.create({
                 bandName: value,
                 genre: val,
                 homeTown: valyou,
                 active: valll
-            }).then(foo => {
+            }).then(res => {
                 console.log("Artist Added!");
             });
         };
