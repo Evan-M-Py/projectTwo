@@ -66,14 +66,13 @@ $("#commentSubmit").on("click", (id) => {
     createPost();
 })
 
-function createPost() {
-    $.ajax({
-        method: "POST",
-        url: "/api/posts"
-    }).then(res => {
+
+
+function createPost(Post) {
+    $.post("/api/posts/", Post, function(res) {
         console.log(res);
     });
-}
+  }
 
 
 
