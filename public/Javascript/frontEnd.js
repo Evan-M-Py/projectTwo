@@ -7,7 +7,6 @@
 // create card with pic and all artist info
 // loop through comment database of corresponding artist and create a card with title, content, author and rating
 //
-var bandJS = require('./band')
 
 $(document).ready(function() {
     //display artists of a certain genre
@@ -38,7 +37,7 @@ $(document).ready(function() {
     function renderArtistPage(id) {
         $.ajax({
             method: "GET",
-            url: "/api/artist/" + id
+            url: "/api/band/" + id
         }).then(res => {
             return;
         });
@@ -62,7 +61,7 @@ $(document).ready(function() {
     $('#commentSubmit').on("click",
             submitPost());
 
-    function submitPost(Post) {
+    function submitPost() {
         $.ajax({
             type: "POST",
             url: "/api/posts" 
