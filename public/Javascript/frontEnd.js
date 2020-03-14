@@ -63,11 +63,12 @@ $(document).ready(function() {
 
 
 $("#commentSubmit").on("click", function() {
-        $.ajax({
+    $.ajax({
       url: queryURL,
       method: "GET"
     }).then(function(response) {
         console.log(response);
+});
 });
 
     // // Performing our AJAX GET request
