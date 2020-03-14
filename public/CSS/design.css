@@ -2,6 +2,27 @@
     font-family: 'Nosifer', cursive;
 }
 
+.formFontColor{
+    color: black;
+    font-family: 'Nosifer', cursive;
+}
+.welcomePage {
+    margin-top: 30px;
+    border: solid black;
+    border-width: .14rem;
+    border-radius: .40rem;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.4);
+}
+.commentForm{
+    margin-top: 30px;
+    border: solid black;
+    border-width: .14rem;
+    border-radius: .40rem;
+    background-color: rgba(255,255,255, 0.25);
+}
+
+
+
 body {
     margin: 0px;
     padding: 0px;
@@ -12,20 +33,96 @@ body {
     -o-background-size: cover;
 }
 
-.card {
-    background-color: grey;
+.landingBoxOne {
+    background-color: rgba(255,255,255, 0.25)
+}
 
+.landingBoxTwo {
+    background-color: rgba(255,255,255, 0.5)
+}
+
+.randoBando {
+    width: 500px;
+}
+
+#homeBtmRow {
+    background-color: rgba(255,255,255, 0.25);
+    border: solid black;
+    border-width: .14rem;
+    border-radius: .40rem;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.4);
+}
+
+.homeRight {
+    background-color: rgba(0,0,0, .75);
+    border-radius: 5px;
+}
+
+
+.card {
+    background-color: rgba(255,255,255, 0.5);
+    padding: 10px;
+    margin: 15px 10px;
+    width: 18rem;
 }
 
 .jumbotron {
-    opacity: 50%;
+    background-color: rgba(255,255,255, 0.5);
     box-shadow: 10px 10px 10px rgba(0,0,0,0.8);
 }
 
-h1 {
+#ratingSlideVal {
+    width: 22px;
+}
+
+#rating {
+    width: 150px;
+    margin-left: 147px;
+    background-color: black;
+}
+.slider {
+    -webkit-appearance: none;
+    height: 15px;
+    border-radius: 5px;  
+    background: black;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    background:darkgrey;
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: lightgray;
+    cursor: pointer;
+  }
+
+  .sliderBox {
+      border: black;
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 8px;
+  }
+
+h1, label {
     font-family: 'Nosifer', cursive;
 
 }
+ label {
+     color: white;
+ }
 
 .child {
     position: absolute;
@@ -33,7 +130,22 @@ h1 {
     transform: translateY(-50%);
 }
 
-#showAllArtists {
+.btn-secondary {
     box-shadow: 5px 5px 5px rgba(0,0,0,0.8);
     opacity: 100%;
+}
+
+#genreDrop {
+    margin-top: 30px;
+}
+
+#formBox {
+    margin-top: 30px;
+}
+
+#artistImage {
+    background-image: url(../Images/beatlesJumbo.jpg);
+    /* background-size: auto 100%; */
+    background-repeat: no-repeat;
+    max-height: 1080px;
 }
