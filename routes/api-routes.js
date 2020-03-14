@@ -6,7 +6,6 @@ module.exports = function(app) {
             order: ["bandName"]
         }).then(function(band) {
             res.json(band);
-            console.log(band);
         });
     });
 
@@ -31,8 +30,40 @@ module.exports = function(app) {
             where: {
                 id: req.params.id
             }
-        }).then(function(dbPost) {
-            res.json(dbPost);
+        }).then(function(band) {
+            res.json(band);
+            const mappedArtist = data.map((res)=> {
+                return res;
+            });
+            const handlebarsObj = {
+                artist: mappedArtist
+            };
+            res.render("band", handlebarsObj);
         });
     });
+    
+    app.delete("/api/post/:id", function (req, res) {
+        db.Band.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then(function(post){
+            res.json(post);
+        })
+    })
+    
+app.post("/api/posts", function(req, res) {
+    console.log(req.body);
+    db.post.create({
+      author: req.body.screenName,
+      rating: req.body.rating,
+      venue: req.body.venue,
+      date: req.body.datePicker,
+      comment: req.body.body.val()
+      
+    }).then(function(dbPost) {
+        res.json(dbPost);
+      });
+  });
 };
+

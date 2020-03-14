@@ -7,8 +7,6 @@ module.exports = function (sequelize, DataTypes) {
             validate: {
                 len: [1, 35]
             }
-
-
         },
         rating: {
             type: DataTypes.INTEGER,
@@ -17,17 +15,24 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1, 5]
             }
         },
-        title: {
+        venue: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1, 30]
             }
         },
-        body: {
+        date: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len:[8,10]
+            }
+        },
+        comment: {
             type: DataTypes.TEXT,
             allowNull: false,
-            len: [1, 250]
+            len: [1, 300]
         }
     });
 
