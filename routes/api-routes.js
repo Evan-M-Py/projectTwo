@@ -2,7 +2,7 @@ const db = require("../models");
 const express = require("express");
 
 
-module.exports = functionapp() {
+module.exports = function(app) {
     app.get("/api/artists", function(req, res) {
         db.Bands.findAll({
             order: ["bandName"]
