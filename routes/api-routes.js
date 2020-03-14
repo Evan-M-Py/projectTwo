@@ -1,6 +1,7 @@
 const db = require("../models");
 const express = require("express");
 
+
 module.exports = function(app) {
     app.get("/api/artists/", function(req, res) {
         db.Bands.findAll({
@@ -84,3 +85,4 @@ app.post("/api/posts", function(req, res) {
 // });
 
 };
+import {jqueryElements} from './jqueryTags.js';
