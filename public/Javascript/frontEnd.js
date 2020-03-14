@@ -60,13 +60,8 @@ $(document).ready(function() {
     });
 });
 
-$("#commentSubmit").on("click", (id) => {
-    createPost();
-    console.log("comment submitted")
-    
-})
 
-$("button").on("click", function() {
+$("#commentSubmit").on("click", function() {
  
     const screenName = $('#screenName').val();
     console.log(screenName);
