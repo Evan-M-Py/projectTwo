@@ -9,17 +9,7 @@
 //
 
 $(document).ready(function() {
-    // --all artists page--
-    function displayAllBands() {
-        $.ajax({
-            method: "GET",
-            url: "/api/artists/"
-        }).then(res => {
-            // console.log(res);
-        });
-    }
-    $("#showAllArtists").on("click", displayAllBands());
-
+    //display artists of a certain genre
     function displayBandsOfGenre(genre) {
         $.ajax({
             method: "GET",
@@ -30,35 +20,43 @@ $(document).ready(function() {
             newDoc.close();
         });
     }
-
     $("#genre").on("change", () => {
         let selectedGenre = $("#genre")
             .children("option:selected")
             .val();
         displayBandsOfGenre(selectedGenre);
     });
+    //function for displaying all comments associated with a band
+    function renderArtistPage(id) {
+        $.ajax({
+            method: "GET",
+            url: "/api/artist/" + id
+        }).then(res => {
+            return
+        });
+    }
+    $(".reviewLink").on("click", idClick => {
+        idClick = event.target.id;
+        console.log(idClick);
+        renderArtistPage(idClick);
+    });
 
     // COMMENTS / COMMENT MANIPULATION
-    // $(document).on("click", "deleteButton", deletePost);
 
-    // appends comments to the artists page
-
-    // appends posts to the artists page
+    function deletePost(id) {
+        $.ajax({
+            method: "DELETE",
+            url: "/api/band/" + id
+        }).then(res => {
+            return
+        });
+    }
+    $(".deleteButton").on("click", idClick => {
+        idClick = event.target.id;
+        console.log(idClick);
+        deletePost(idClick);
+    });
 });
 
-var commentSubmit = document.getElementById('commentSubmit');
-var calBtn = document.getElementById('calBtn');
-const picker = datepicker('.picker', {
-    onSelect: instance => {
-        picker.hide()
-    console.log(instance.dateSelected);
-    },
-    id:1
-});
-$('#calBtn').on('click', picker.show());
-// calBtn.addEventListener('click', e => {
-//     e.stopPropagation()
-//     const isHidden = picker.calendarContainer.classList.contains('qs-hidden')
-//     picker[isHidden ? 'show' : 'hide']()
-//   })
-picker.calendarContainer.style.setProperty('font-size', '1.1rem');
+
+
