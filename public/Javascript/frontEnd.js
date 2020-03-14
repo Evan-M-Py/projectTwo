@@ -7,6 +7,7 @@
 // create card with pic and all artist info
 // loop through comment database of corresponding artist and create a card with title, content, author and rating
 //
+var bandJS = require('./band')
 
 $(document).ready(function() {
     //display artists of a certain genre
