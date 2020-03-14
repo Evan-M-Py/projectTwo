@@ -28,8 +28,8 @@ $(document).ready(function() {
     });
 
     //function for displaying all comments associated with a band
-    let artistsChoice = document.getElementById("artistChoice")
-    $('.artistClick').on('click', () => {
+    let artistChoice = $('.artistClick').val().trim()
+    $(artistChoice).on('click', () => {
         renderArtistPage(artistsChoice);
     })
 
@@ -39,7 +39,7 @@ $(document).ready(function() {
             method: "GET",
             url: "/api/band/" + id
         }).then(res => {
-            return;
+            return res;
         });
     }
     $(".reviewLink").on("click", idClick => {
