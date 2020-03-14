@@ -69,7 +69,7 @@ $("#commentSubmit").on("click", (id) => {
 function createPost() {
     $.ajax({
         method: "POST",
-        url: "/api/comments"
+        url: "/api/posts"
     }).then(res => {
         console.log(res);
     });
