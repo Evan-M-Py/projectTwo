@@ -52,7 +52,7 @@ $(document).ready(function() {
 
 
     $('#commentSubmit').on("click",
-            submitPost(newPost));
+            submitPost());
 
     function submitPost(Post) {
         $.ajax({
