@@ -83,6 +83,7 @@ $(document).ready(function() {
             window.location.href = "/blog";
           });
       };
+    });
 
 
 //     function deletePost(id) {
