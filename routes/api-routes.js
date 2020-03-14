@@ -54,7 +54,8 @@ module.exports = function(app) {
         })
     })
 
-let author = $('#screenName').val().trim();
+$('#screenName').val().trim() = author;
+console.log(author);
 let rating = $('#ratingSliderVal').val().trim();
 let venue = $('#venue').val().trim();
 let date = $('#datePicker').val().trim();
