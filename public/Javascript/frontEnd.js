@@ -43,6 +43,11 @@ $(document).ready(function() {
 
     // COMMENTS / COMMENT MANIPULATION
     let updating = false;
+    let author = $("#screenName");
+    let rating = $("#slider");
+    let venue = $("#venue");
+    let date = $("#datePicker");
+    let comment = $("#comment");
 
 
 
