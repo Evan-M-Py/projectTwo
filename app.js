@@ -1,6 +1,7 @@
 const express = require("express");
 const models = require("./models");
 const handlebars = require("express-handlebars");
+const connection = require('././config/connection')
 
 const app = express();
 const PORT = process.env.PORT || 8080;
