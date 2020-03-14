@@ -12,7 +12,7 @@ Shouldn't there be a place to share all these experiences?
 ------
 Welcome to Tales from the Pit, where you can rate and comment on the performaces of some of the industrys biggest artists and share your experience seeing them live!
 
-<strong>Deployed:</strong> < heroku link here >
+<strong>Deployed:</strong> https://dashboard.heroku.com/apps/frozen-woodland-40045
 
 <strong>Technologies used:</strong> Javascript, MySQL, Node, Express, Handlebars, Bootstrap, jQuery
 
