@@ -54,7 +54,7 @@ module.exports = function(app) {
         })
     })
     
-app.post("/api/posts", function(req, res) {
+app.post("/api/posts/", function(req, res) {
     db.Comment.create({
       author: req.body.screenName,
       rating: req.body.rating,
@@ -63,7 +63,7 @@ app.post("/api/posts", function(req, res) {
       comment: req.body.body
       
     }).then(function(dbPost) {
-        // console.log(dbPost);
+        console.log('show me the money' + dbPost);
         res.json(dbPost);
       });
   });

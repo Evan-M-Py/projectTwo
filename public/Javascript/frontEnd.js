@@ -44,16 +44,9 @@ $(document).ready(function() {
     // COMMENTS / COMMENT MANIPULATION
     let updating = false;
 
-    const author = $('#screenName');
-    const rating = $('#ratingSliderVal');
-    const venue = $('#venue');
-    const date = $('#datePicker');
-    const comment = $('#comment');
 
-    $(commentForm).on("submit", function handleFormSubmit(event) {
-        if (!Author.val().trim() || !comment.val().trim()) {
-            return;
-          }
+
+    $('#commentForm').on("submit", function handleFormSubmit(event) {
           const newPost = {
             author: author.val().trim(),
             rating: rating.val().trim(),
@@ -67,8 +60,11 @@ $(document).ready(function() {
         });
 
     function submitPost(Post) {
-        $.post("/api/posts/", Post, function (res) {
-            console.log('this is:' + res);
+        $.ajax({
+            method: "GET",
+            url: "/api/artist/" + Post
+        }).then(res => {
+            console.log(res);
         });
     };
 
