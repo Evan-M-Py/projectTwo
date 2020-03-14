@@ -2,8 +2,8 @@ const db = require("../models");
 const express = require("express");
 
 
-module.exports = function(app) {
-    app.get("/api/artists/", function(req, res) {
+module.exports = functionapp() {
+    app.get("/api/artists", function(req, res) {
         db.Bands.findAll({
             order: ["bandName"]
         }).then(function(band) {
@@ -54,7 +54,7 @@ module.exports = function(app) {
         })
     })
     
-app.post("/api/posts/", function(req, res) {
+app.post("/api/posts", function(req, res) {
     db.Comment.create({
       author: req.body.author,
       rating: req.body.rating,
