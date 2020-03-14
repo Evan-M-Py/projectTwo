@@ -33,20 +33,20 @@ db.sequelize.sync().then(function() {
     //     };
         
     //     //Rock
-    //     insert("The Beatles", "Rock", "Liverpool", false);
-    //     insert("The Rolling Stones", "Rock", "London, England", true);
+        insert("The Beatles", "Rock", "Liverpool", false);
+        insert("The Rolling Stones", "Rock", "London, England", true);
     //     //Hip Hop
-    //     insert("Nas", "Hip Hop", "New York", true);
-    //     insert("The Wu-Tang Clan", "Hip Hop", "New York, New York", true);
+        insert("Nas", "Hip Hop", "New York", true);
+        insert("The Wu-Tang Clan", "Hip Hop", "New York, New York", true);
     //     //Pop
-    //     insert("Ariana Grande", "Pop", "Florida", true);
-    //     insert("Kali Uchis", "Pop", "Pereira, Risaralda, Columbia", true);
+        insert("Ariana Grande", "Pop", "Florida", true);
+        insert("Kali Uchis", "Pop", "Pereira, Risaralda, Columbia", true);
     //     //Electronic
-    //     insert("Deadmau5", "Electronic", "Canada", true);
-    //     insert("Dan Deacon", "Electronic", "Baltimore, Maryland", true);
+        insert("Deadmau5", "Electronic", "Canada", true);
+        insert("Dan Deacon", "Electronic", "Baltimore, Maryland", true);
     //     //Alternative
-    //     insert("Nirvana", "Alternative", "Seattle", false);
-    //     insert("Sonic Youth", "Alternative", "New York, New York", false);
+        insert("Nirvana", "Alternative", "Seattle", false);
+        insert("Sonic Youth", "Alternative", "New York, New York", false);
         
     });
 
