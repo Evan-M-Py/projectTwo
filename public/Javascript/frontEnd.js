@@ -46,7 +46,7 @@ $(document).ready(function() {
 
 
 
-    $('#commentForm').on("click", function handleFormSubmit(event) {
+    $('#commentSubmit').on("click", function handleFormSubmit(event) {
           const newPost = {
             author: author.val().trim(),
             rating: rating.val().trim(),
