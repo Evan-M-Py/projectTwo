@@ -55,10 +55,10 @@ module.exports = function(app) {
 app.post("/api/posts", function(req, res) {
     console.log(req.body);
     db.post.create({
-      author: req.body.screenName,
-      rating: req.body.rating,
-      venue: req.body.venue,
-      date: req.body.datePicker,
+      author: req.body.screenName.val(),
+      rating: req.body.rating.val(),
+      venue: req.body.venue.val(),
+      date: req.body.datePicker.val(),
       comment: req.body.body.val()
       
     }).then(function(dbPost) {
@@ -71,11 +71,11 @@ app.post("/api/comments", function(req, res) {
     console.log(req.body);
     db.Comment
         .create({
-            author: req.body.screenName.value,
-            rating: req.body.ratingSlideVal.value,
-            venue: req.body.venue.value,
-            date: req.body.datePicker.value,
-            comment: req.body.comment.value
+            author: req.body.screenName.val(),
+            rating: req.body.ratingSlideVal.val(),
+            venue: req.body.venue.val(),
+            date: req.body.datePicker.val(),
+            comment: req.body.comment.val()
         })
         .then(function(dbPost) {
             res.json(dbPost);

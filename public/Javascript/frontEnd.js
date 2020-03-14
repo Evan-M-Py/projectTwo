@@ -43,19 +43,7 @@ $(document).ready(function() {
 
     // COMMENTS / COMMENT MANIPULATION
 
-    function createPost() {
-        $.ajax({
-            method: "POST",
-            url: "/api/comments"
-        }).then(res => {
-            console.log(res);
-        });
-    }
-    $("#commentSubmit").on("click", (id) => {
-        event.preventDefault();
-        console.log("comment submitted")
-        createPost();
-    })
+
 
     function deletePost(id) {
         $.ajax({
@@ -71,6 +59,21 @@ $(document).ready(function() {
         deletePost(idClick);
     });
 });
+
+$("#commentSubmit").on("click", (id) => {
+    event.preventDefault();
+    console.log("comment submitted")
+    createPost();
+})
+
+function createPost() {
+    $.ajax({
+        method: "POST",
+        url: "/api/comments"
+    }).then(res => {
+        console.log(res);
+    });
+}
 
 
 
