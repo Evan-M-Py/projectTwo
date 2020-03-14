@@ -7,7 +7,6 @@
 // create card with pic and all artist info
 // loop through comment database of corresponding artist and create a card with title, content, author and rating
 //
-const routes = require('../../routes/api-routes')
 
 $(document).ready(function() {
     //display artists of a certain genre
