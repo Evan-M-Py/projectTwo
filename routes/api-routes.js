@@ -53,22 +53,15 @@ module.exports = function(app) {
             res.json(post);
         })
     })
-
-$('#screenName').val().trim() = author;
-console.log(author);
-let rating = $('#ratingSliderVal').val().trim();
-let venue = $('#venue').val().trim();
-let date = $('#datePicker').val().trim();
-let comment = $('#comment').val().trim();
     
 app.post("/api/posts", function(req, res) {
     console.log(req.body);
     db.Comment.create({
-      author: author,
-      rating: rating,
-      venue: venue,
-      date: date,
-      comment: comment
+      author: req.body.screenName,
+      rating: req.body.rating,
+      venue: req.body.venue,
+      date: req.body.datePicker,
+      comment: req.body.body
       
     }).then(function(dbPost) {
         console.log(dbPost);
