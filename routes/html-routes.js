@@ -6,7 +6,7 @@ module.exports = function(app) {
     app.get("/", function(req, res) {
         res.render("home");
     });
-    // main page of all artists
+   
     app.get("/artists", function(req, res) {
         db.Bands.findAll({
             order: ["bandName"]

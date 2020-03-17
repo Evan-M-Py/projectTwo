@@ -34,12 +34,8 @@ module.exports = function(app) {
                 id: req.params.id
             }
         }).then(function(band) {
-            res.json(band);
             const mappedArtist = band
-            const handlebarsObj = {
-                artist: mappedArtist
-            };
-            res.render("band", handlebarsObj);
+            res.render("band", band);
         });
     });
     

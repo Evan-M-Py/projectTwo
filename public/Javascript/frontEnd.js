@@ -29,13 +29,15 @@ $(document).ready(function() {
             method: "GET",
             url: "/api/artist/" + id
         }).then(res => {
+            console.log(res);
             return;
         });
     }
     $(".reviewLink").on("click", idClick => {
         idClick = event.target.id;
-        console.log(idClick);
-        renderArtistPage(idClick);
+        console.log(typeof idClick);
+
+        // renderArtistPage(idClick);
     });
 
     // COMMENTS / COMMENT MANIPULATION
@@ -79,14 +81,13 @@ $(document).ready(function() {
             url: "/api/posts/" 
         }).then(res => {
             console.log(res);
-
         });
     };
 
     function updatePost(post) {
         $.ajax({
           type: "PUT",
-          url: "/api/posts",
+          url: "/api/posts/",
           data: post
         })
           .then(function(res) {
